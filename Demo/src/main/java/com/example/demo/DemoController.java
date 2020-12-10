@@ -7,11 +7,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DemoController {
-	
-	
-		@RequestMapping("/home")
-		public String openHomePage() {
-			return "check.jsp";
+	ModelAndView model = new ModelAndView();
+	@GetMapping("/")
+		public ModelAndView openHomePage() {
+		model.addObject("x", "Hello");
+		model.setViewName("check.jsp");
+		return model;
+		
 		}
 
 
